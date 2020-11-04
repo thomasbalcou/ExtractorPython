@@ -9,7 +9,7 @@ import pandas as pd
 def recup_liste_url(): #fct qui récupère la liste des url à partir du fichier texte
     debut_url = 'https://en.wikipedia.org/wiki/'
     liste_url = [] #futur liste des urls
-    fichier = open("C:/Users/Admin/Documents/PDL/wikiurls.txt","r") #ouvre le fichier
+    fichier = open("wikiurls.txt","r") #ouvre le fichier
     for ligne in fichier: #parcours chaques ligne du fichier et l'ajoute à la liste
         url = debut_url + ligne #en complétant l'url
         liste_url.append(url.strip()) #strip enlève les espaces avant et après la chaine de caractère

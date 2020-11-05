@@ -43,4 +43,3 @@ for url in liste_url: #boucle pour parcourir la liste des urls en envoyant une r
 for url in liste_url: #Boucle qui parcourt chaque url du fichier wikiurl
     recuperation = recup_tableau(url)
 print(recuperation)
-

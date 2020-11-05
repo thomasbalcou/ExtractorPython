@@ -26,23 +26,21 @@ def requete_url(url): #requête à partir de l'url
 
 def recup_tableau(url): #Récupération du ou des tableau(x) de l'url
     response = requests.get(url)
-    tableaux = pd.read_html(response.text, attrs={"class" : "wikitable"})
-    #soup = BeautifulSoup(response.text, features='html.parser')
-    #tableaux = soup.find_all('table',class_='wikitable') #fonction qui récupère les données de tableaux HTML
-    return tableaux
- 
-"""def extract_tableau(url):  
-    i=0
-    for 
-"""
-
+    #tableaux = pd.read_html(response.text, attrs={"class" : "wikitable"}) // Test avec pandas
+    soup = BeautifulSoup(response.text, "lxml")
+    tableaux = soup.find_all('table',class_='wikitable') #Fonction qui récupère les données des tableaux HTML
+    
+    print ("Tableaux récupérés : {num}".format(num=len(tableaux))) #Nombre de tableaux récupérés par la fonction
+    for i in tableaux:
+        print(i.text)
+       
 #main
 liste_url=recup_liste_url()
 for url in liste_url: #boucle pour parcourir la liste des urls en envoyant une requête pour chaque
     resultat = requete_url(url) #si résultat=none la requête n'a pas abouti
     #suite
-recup_tableau = recup_tableau(url)
 
-for wikitable in recup_tableau:
-    recup_tableau
-    print(recup_tableau)
+for url in liste_url: #Boucle qui parcourt chaque url du fichier wikiurl
+    recuperation = recup_tableau(url)
+print(recuperation)
+

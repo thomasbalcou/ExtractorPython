@@ -30,9 +30,9 @@ def recup_tableau(url): #Récupération du ou des tableau(x) de la page
     return None
        
 def get_table_rows(table):
-    rows = []
-    for tr in table.find_all("tr"):
-        cells =[]
+    rows = [] #we will put all rows of the table in a list
+    for tr in table.find_all("tr"): #for each row, we will stock content of columns in a list
+        cells =[] 
         tds = tr.find_all("td")
         if len(tds) == 0:
             ths = tr.find_all("th")
@@ -41,27 +41,25 @@ def get_table_rows(table):
         else:
             for td in tds:
                 cells.append(td.text.strip())
-        rows.append(cells)
+        rows.append(cells) #for each row, we add the list of all columns in the list of rows
     return rows  
 
 def save_to_csv(table_name, rows):
     dircsv = './output'
-    if not os.path.exists(dircsv):
-        os.mkdir(dircsv)
-    pd.DataFrame(rows).to_csv(f"output/{table_name}.csv",encoding='utf-8')
-    #with open(f"output/{table_name}.csv", "w", encoding="utf-8") as f:
-    #    f.write(rows)
+    if not os.path.exists(dircsv): #we check if the directory output exists
+        os.mkdir(dircsv) #if not, we create one
+    pd.DataFrame(rows).to_csv(f"output/{table_name}.csv",encoding='utf-8') #use of pandas library
 
 
-def wikipedia_extractor(url):
+def wikipedia_extractor(url): #extractor of one url
     tables = recup_tableau(url)
     if tables is not None:
         for i, table in enumerate(tables, start = 1):
-            table_name = f"{url[30:]}_{i}"
+            table_name = f"{url[30:]}_{i}" #delete the prefix of wikipedia
             rows = get_table_rows(table)
             save_to_csv(table_name, rows)
 
-def extractor(urls):
+def extractor(urls): #extractor of a list of url
     list_url = recup_liste_url(urls)
     for url in list_url:
         wikipedia_extractor(url)
@@ -69,4 +67,3 @@ def extractor(urls):
 if __name__ == "__main__":
     urls = "wikiurls.txt"
     extractor(urls)
-

@@ -20,7 +20,7 @@ def recup_liste_url(url): #fct qui récupère la liste des url à partir du fich
 def recup_tableau(url): #Récupération du ou des tableau(x) de la page
     response = requests.get(url)
     #tableaux = pd.read_html(response.text, attrs={"class" : "wikitable"}) // Test avec pandas
-    if (response.status_code == 200):
+    if (response.status_code == 200): #verifie que la requete fonctionne
         soup = BeautifulSoup(response.text, "html.parser")
         tableaux = soup.find_all('table',class_='wikitable') #Fonction qui récupère les données des tableaux HTML
     

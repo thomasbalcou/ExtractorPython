@@ -24,6 +24,6 @@ You will need to clone the project in order to get the code and test it. (https:
 
 # Authors
 
-Léo PASQUEREAU
-Flavien LEDUC
-Thomas BALCOU
+*Léo PASQUEREAU  
+*Flavien LEDUC  
+*Thomas BALCOU

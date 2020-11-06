@@ -1,6 +1,6 @@
 # Wikipedia Matrix Extractor (2020/2021)
 
-This project is inspired by the project "Wikipedia Matrix" which was made by a group of M1 MIAGE during 2019 & 2020.
+This project is inspired by the project "Wikipedia Matrix" which was made by a group of M1 MIAGE during 2020 & 2021.
 
 # The goal of the project "Wikipedia Matrix Extractor"
 

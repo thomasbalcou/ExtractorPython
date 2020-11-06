@@ -70,15 +70,3 @@ if __name__ == "__main__":
     urls = "wikiurls.txt"
     extractor(urls)
 
-
-#main
-#liste_url=recup_liste_url()
-#for url in liste_url: #boucle pour parcourir la liste des urls en envoyant une requête pour chaque
-#   resultat = requete_url(url) #si résultat=none la requête n'a pas abouti
-#    #suite
-
-#for url in liste_url: #Boucle qui parcourt chaque url du fichier wikiurl
-#    recuperation = recup_tableau(url)
-#    print(recuperation)
-
-
